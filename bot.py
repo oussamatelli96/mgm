@@ -13,8 +13,11 @@ import sys
 import re
 import threading
 
-TOKEN = "8613281438:AAGyXhCCuG-OMKVqjxUChOr6pbZy1qAw0v4"
-bot = telebot.TeleBot(TOKEN)
+import os
+
+TOKEN = os.getenv("BOT_TOKEN")  # أو os.getenv("TELEGRAM_TOKEN") حسب الاسم اللي اخترته
+if not TOKEN:
+    raise ValueError("لم يتم العثور على BOT_TOKEN في Environment Variables")bot = telebot.TeleBot(TOKEN)
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
