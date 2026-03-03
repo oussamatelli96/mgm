@@ -15,9 +15,14 @@ import threading
 
 import os
 
-TOKEN = os.getenv("BOT_TOKEN")  # أو os.getenv("TELEGRAM_TOKEN") حسب الاسم اللي اخترته
+import os
+
+TOKEN = os.getenv("BOT_TOKEN")
+
 if not TOKEN:
-    raise ValueError("لم يتم العثور على BOT_TOKEN في Environment Variables")bot = telebot.TeleBot(TOKEN)
+    raise ValueError("لم يتم العثور على BOT_TOKEN في Environment Variables")
+
+bot = telebot.TeleBot(TOKEN)
 
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
